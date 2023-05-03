@@ -8,7 +8,7 @@ def encode(plain_text, amount_shift):
         position = alphabet.index(ch)
         new_position = position + amount_shift
         if new_position > 25:
-            new_position = new_position - 26
+            new_position = new_position % 26
         cipher_text += alphabet[new_position]
     return cipher_text
 
@@ -19,7 +19,7 @@ def decode(cipher_text, amount_shift):
         position = alphabet.index(ch)
         new_position = position - amount_shift
         if new_position < 0:
-            new_position = new_position + 26
+            new_position = new_position % 26
         plain_text += alphabet[new_position]
     return plain_text
 
